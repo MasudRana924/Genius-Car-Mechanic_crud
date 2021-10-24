@@ -38,6 +38,13 @@ async function run() {
             console.log('hit the post')
             res.json(result)
         })
+        // delete
+        app.delete('/service/:id',async(req,res)=>{
+            const id=req.params.id 
+            const query={_id:ObjectId(id)}
+            const result=await servicesCollection.deleteOne(query)
+            res.json(result)
+        })
     }
     finally {
 
